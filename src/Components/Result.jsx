@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { REACT_APP_GOOGLE_API_KEY } from "./api";
 
 const Result = () => {
   const [data, setData] = useState([]);
@@ -9,7 +10,8 @@ const Result = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/customsearch/v1?key=AIzaSyCo_RVp5Kc5MKhXyU_e0sPTNcHLjp4_Oa8&cx=87a49879cb66a4914&q=${link}`
+          // eslint-disable-next-line no-undef
+          `https://www.googleapis.com/customsearch/v1?key=${REACT_APP_GOOGLE_API_KEY}&cx=87a49879cb66a4914&q=${link}`
         );
 
         if (!response.ok) {
